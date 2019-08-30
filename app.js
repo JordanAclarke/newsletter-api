@@ -6,9 +6,9 @@ const app = express()
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}))
 
-app.listen(3000, function() {
-    console.log("Server is running on port 3000")
-})
+// app.listen(3000, function() {
+//     console.log("Server is running on port 3000")
+// })
 
 app.get("/", function(req, res) {
     res.sendFile(__dirname + "/signup.html")
@@ -57,7 +57,9 @@ app.post("/", function(req, res) {
 app.post("/failure", function(req, res) {
     res.redirect("/");
 })
-
+app.listen(process.env.PORT, function() {
+    console.log("Server is running on port 3000")
+})
 // var apiKey= "2bb3d5d092c1e48f7b9567c35bdf1b1e-us4"
 
 // listId = 6b039de4c1
